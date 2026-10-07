@@ -3,11 +3,11 @@ import time
 from collections import Counter
 from pyspark.sql import SparkSession
 
-FILE = "Data/Big_Data_.txt"          # ganti kalau nama/path file kamu beda
+FILE = "Data/Big_Data.txt"          # ganti kalau nama/path file kamu beda
 PARTITIONS = [1, 2, 4, 8, 16, 32]
 ULANGI = 3                    # tiap partition dijalankan 3x, lalu dirata-rata
 
-spark = SparkSession.builder.appName("WordCountBenchmark").getOrCreate()
+spark = SparkSession.builder.appName("WordCount").getOrCreate()
 sc = spark.sparkContext
 
 
@@ -15,6 +15,7 @@ def tokenisasi(baris):
     # huruf kecil, ambil hanya kata (huruf/angka)
     return re.findall(r"\w+", baris.lower())
 
+# test push ke github shabrina
 
 def wordcount_spark(n_partition):
     mulai = time.time()
